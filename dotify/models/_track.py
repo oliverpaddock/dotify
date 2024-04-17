@@ -3,9 +3,12 @@ import logging
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, AnyStr, Dict, Iterator, List, Optional, cast
 from urllib.error import HTTPError
+import dateutil.parser as parser
+import datetime
 
 from moviepy.editor import AudioFileClip
 from mutagen.easyid3 import EasyID3
+from mutagen.id3 import ID3
 from pytube import YouTube
 from pytube.streams import Stream
 from youtubesearchpython import VideosSearch
@@ -25,6 +28,12 @@ class TrackBase(Model):
 
     class Json(object):
         abstract = True
+
+    def __init__(self, **props) -> None:
+        if 'album' in props and 'release_date' in props['album']:
+            props['album']['release_date'] = parser.parse(props['album']['release_date'], default=datetime.datetime(2000, 1, 1)).strftime('%Y-%m-%d')
+
+        super().__init__(**props)
 
     def __str__(self) -> str:
         return "{0} - {1}".format(self.artist, self.name)
@@ -206,6 +215,9 @@ class Track(TrackBase):
         easy_id3.update(self.id3_tags)
 
         easy_id3.save(v2_version=3)
+        id3 = ID3(mp3_path)
+        id3.add(self.id3_tags['albumcover']) # easy_id3 albumcover not working
+        id3.save(v2_version=3)
 
         return mp3_path
 

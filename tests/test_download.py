@@ -6,6 +6,10 @@ class DotifyDownloadTestCase(DotifyBaseTestCase):
         url = "https://open.spotify.com/track/5G9fgmdZOZFPmb0aEwm5uN"
         self.download("Track", url)
 
+        # Date format is different
+        url = "https://open.spotify.com/track/4feXcsElKIVsGwkbnTHAfV?si=0f5061d3d6194533"
+        self.download("Track", url)
+
     def test_download_playlist(self):
         url = "https://open.spotify.com/playlist/1HkE7QDzcdtF3lQGVF744N"
         self.download("Playlist", url)
