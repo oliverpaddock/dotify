@@ -45,11 +45,11 @@ print('29', end-start)
 start = end
 from dotify._dotify import Dotify
 end = time.time()
-print('30', end-start)
+print('210', end-start)
 start = end
 from dotify._json_serializable import JsonSerializable, JsonSerializableMeta, logger
 end = time.time()
-print('31', end-start)
+print('211', end-start)
 start = end
 
 logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
