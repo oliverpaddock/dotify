@@ -1,19 +1,64 @@
+import time
+
+start = time.time()
 import contextlib
+end = time.time()
+print('40', end=start)
+start = end
 import logging
+end = time.time()
+print('41', end=start)
+start = end
 from pathlib import Path
+end = time.time()
+print('42', end=start)
+start = end
 from typing import TYPE_CHECKING, Any, AnyStr, Dict, Iterator, List, Optional, cast
+end = time.time()
+print('43', end=start)
+start = end
 from urllib.error import HTTPError
+end = time.time()
+print('44', end=start)
+start = end
 import dateutil.parser as parser
+end = time.time()
+print('45', end=start)
+start = end
 import datetime
+end = time.time()
+print('46', end=start)
+start = end
 
 from moviepy.editor import AudioFileClip
+end = time.time()
+print('47', end=start)
+start = end
 from mutagen.easyid3 import EasyID3
+end = time.time()
+print('48', end=start)
+start = end
 from mutagen.id3 import ID3
+end = time.time()
+print('49', end=start)
+start = end
 from pytube import YouTube
+end = time.time()
+print('410', end=start)
+start = end
 from pytube.streams import Stream
+end = time.time()
+print('411', end=start)
+start = end
 from youtubesearchpython import VideosSearch
+end = time.time()
+print('412', end=start)
+start = end
 
 from dotify._model import Model, logger
+end = time.time()
+print('413', end=start)
+start = end
 
 logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
 
@@ -21,7 +66,9 @@ EasyID3.RegisterTextKey("albumcover", "APIC")
 
 if TYPE_CHECKING is True:
     from dotify.models._artist import Artist
-
+end = time.time()
+print('414', end=start)
+start = end
 
 class TrackBase(Model):
     """`TrackBase` defines the interface of the `Track` class, which is subclassing it."""
