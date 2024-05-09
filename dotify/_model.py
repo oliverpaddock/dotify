@@ -1,17 +1,56 @@
+import time
+
+start = time.time()
 import contextlib
+end = time.time()
+print('20', end-start)
+start = end
 import logging
+end = time.time()
+print('21', end-start)
+start = end
 from functools import wraps
+end = time.time()
+print('22', end-start)
+start = end
 from http import HTTPStatus
+end = time.time()
+print('23', end-start)
+start = end
 from importlib import import_module
+end = time.time()
+print('24', end-start)
+start = end
 from pathlib import Path
+end = time.time()
+print('25', end-start)
+start = end
 from re import match
+end = time.time()
+print('26', end-start)
+start = end
 from typing import Any, AnyStr, Callable, Iterator, Optional, cast
+end = time.time()
+print('27', end-start)
+start = end
 
 from spotipy.exceptions import SpotifyException
+end = time.time()
+print('28', end-start)
+start = end
 
 from dotify._decorators import cached_classproperty
+end = time.time()
+print('29', end-start)
+start = end
 from dotify._dotify import Dotify
+end = time.time()
+print('30', end-start)
+start = end
 from dotify._json_serializable import JsonSerializable, JsonSerializableMeta, logger
+end = time.time()
+print('31', end-start)
+start = end
 
 logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
 
