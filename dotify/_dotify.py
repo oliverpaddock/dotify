@@ -1,16 +1,16 @@
 import contextlib
-import logging
+# import logging
 import os
 import threading
 from typing import Any, AnyStr, Dict, List, Optional, cast
 
 from spotipy import Spotify as Client
-from spotipy.client import logger
+# from spotipy.client import logger
 from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOauthError
 
 from dotify._decorators import classproperty
 
-logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
+# logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
 
 
 class Dotify(Client):
@@ -70,8 +70,8 @@ class Dotify(Client):
     def __exit__(self, exc_type, exc_value, _) -> None:
         type(self).contexts.pop()
 
-        if exc_type is not None:
-            logger.error("%s: %s", exc_type.__name__, exc_value)
+        # if exc_type is not None:
+        #     logger.error("%s: %s", exc_type.__name__, exc_value)
 
     @classproperty
     def contexts(cls) -> List["Dotify"]:  # noqa: N805
