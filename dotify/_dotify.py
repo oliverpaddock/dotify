@@ -1,16 +1,46 @@
+import time
+
+start = time.time()
 import contextlib
-# import logging
+end = time.time()
+print('1', print(end-start))
+start = end
+import logging
+end = time.time()
+print('2',print(end-start))
+start = end
 import os
+end = time.time()
+print('3',print(end-start))
+start = end
 import threading
+end = time.time()
+print('4',print(end-start))
+start = end
 from typing import Any, AnyStr, Dict, List, Optional, cast
+end = time.time()
+print('5',print(end-start))
+start = end
 
 from spotipy import Spotify as Client
-# from spotipy.client import logger
+end = time.time()
+print('6',print(end-start))
+start = end
+from spotipy.client import logger
+end = time.time()
+print('7',print(end-start))
+start = end
 from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOauthError
+end = time.time()
+print('8',print(end-start))
+start = end
 
 from dotify._decorators import classproperty
+end = time.time()
+print('9',print(end-start))
+start = end
 
-# logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
+logger = logging.getLogger("{0}.{1}".format(logger.name, __name__))
 
 
 class Dotify(Client):
@@ -70,8 +100,8 @@ class Dotify(Client):
     def __exit__(self, exc_type, exc_value, _) -> None:
         type(self).contexts.pop()
 
-        # if exc_type is not None:
-        #     logger.error("%s: %s", exc_type.__name__, exc_value)
+        if exc_type is not None:
+            logger.error("%s: %s", exc_type.__name__, exc_value)
 
     @classproperty
     def contexts(cls) -> List["Dotify"]:  # noqa: N805
