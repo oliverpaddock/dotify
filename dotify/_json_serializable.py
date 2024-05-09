@@ -1,11 +1,35 @@
+import time
+
+start = time.time()
 import logging
+end = time.time()
+print('10', end-start)
+start = end
 from abc import ABCMeta
+end = time.time()
+print('11', end-start)
+start = end
 from typing import Any, Optional, cast
+end = time.time()
+print('12', end-start)
+start = end
 
 from python_jsonschema_objects import ObjectBuilder
+end = time.time()
+print('13', end-start)
+start = end
 from python_jsonschema_objects.classbuilder import LiteralValue, ProtocolBase
+end = time.time()
+print('14', end-start)
+start = end
 from python_jsonschema_objects.validators import ValidationError
+end = time.time()
+print('15', end-start)
+start = end
 from python_jsonschema_objects.wrapper_types import ArrayWrapper
+end = time.time()
+print('16', end-start)
+start = end
 
 logger = logging.getLogger(__name__)
 
